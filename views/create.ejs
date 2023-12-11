@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Gus's Blog</title>
+    <link rel="stylesheet" href="/style.css" />
+  </head>
+  <body>
+    <%- include('header.ejs') %>
+    <form action="/create" method="post">
+        <div class="post-title">
+          <h2>What's on your mind?</h2>
+        </div>
+      
+        <div class="text">
+          <input type="text" name="postTitle" placeholder="Title">
+          <textarea name="postContent" id="" cols="42" rows="10"></textarea>
+          <button type="submit" class="btn post">Post</button>
+        </div>
+       
+      </form>
+      
+      <div class="box">
+        <% for (let i = 0; i < posts.length; i++) { %>
+
+            <h2><%= posts[i].title %></h2>
+            <p class="size"><%= posts[i].content %></p>
+            <form action="/deletepost" method="post">
+              <input type="hidden" name="postIndex" value="<%= i %>">
+              <button type="submit" class="btn delete">Delete post</button>
+            
+            </form>
+          </div>
+        <% } %>
+      </div>
+      
+  </body>
+</html>
