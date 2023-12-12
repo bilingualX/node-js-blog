@@ -1,6 +1,7 @@
 import express from 'express';
 const app = express();
 import bodyParser from 'body-parser';
+import http from 'http';
 
 app.use(express.static('public'));
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -37,7 +38,8 @@ app.post('/deletepost', (req, res) => {
     // Renderize a página novamente após excluir o post
     res.render('create.ejs', { posts: posts });
 });
+const PORT = process.env.PORT || 3000;
 
-app.listen(3000, ()=>{
+app.listen(PORT, ()=>{
     console.log('working')
 })
