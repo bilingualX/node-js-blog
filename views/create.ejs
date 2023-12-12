@@ -34,6 +34,15 @@
           </div>
         <% } %>
       </div>
+      <script>
+        document.addEventListener('DOMContentLoaded', function () {
+          var mobileMenu = document.getElementById('menu');
+          var menuToggle = document.getElementById('menu-toggle');
       
+          menuToggle.addEventListener('click', function () {
+            mobileMenu.classList.toggle('show');
+          });
+        });
+      </script>
   </body>
 </html>
